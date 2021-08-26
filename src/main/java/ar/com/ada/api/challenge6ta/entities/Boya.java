@@ -46,6 +46,14 @@ public class Boya {
         this.boyaId = boyaId;
     }
 
+    public ColorLuzEnum getColorLuz() {
+        return ColorLuzEnum.parse(this.colorLuz);
+    }
+
+    public void setColorLuz(Integer colorLuz) {
+        this.colorLuz = colorLuz;
+    }
+
     public Double getLongitudInstalacion() {
         return longitudInstalacion;
     }

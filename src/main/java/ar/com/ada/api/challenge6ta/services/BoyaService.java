@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ar.com.ada.api.challenge6ta.entities.Boya;
+import ar.com.ada.api.challenge6ta.entities.Boya.ColorLuzEnum;
 import ar.com.ada.api.challenge6ta.repository.BoyaRepository;
 
 @Service
