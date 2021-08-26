@@ -14,7 +14,7 @@ public class BoyaService {
     @Autowired
     BoyaRepository repository;
 
-    public Boya crearBoya(Integer boyaId, String colorLuz, Double longitudInstalacion, Double latitudInstalacion) {
+    public Boya crearBoya(Integer boyaId, Integer colorLuz, Double longitudInstalacion, Double latitudInstalacion) {
 
         Boya boya = new Boya();
         boya.setBoyaId(boyaId);

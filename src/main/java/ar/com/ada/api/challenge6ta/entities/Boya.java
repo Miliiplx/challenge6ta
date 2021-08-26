@@ -12,21 +12,21 @@ public class Boya {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "boya_id")
-     private Integer boyaId;
+    private Integer boyaId;
 
-     @Column(name = "color_luz")
-     private String colorLuz;
+    @Column(name = "color_luz_id")
+    private Integer colorLuz;
 
-     @Column(name = "longitud_instalacion")
-     private Double longitudInstalacion;
+    @Column(name = "longitud_instalacion")
+    private Double longitudInstalacion;
 
-     @Column(name = "latitud_instalacion")
-     private Double latitudInstalacion;
+    @Column(name = "latitud_instalacion")
+    private Double latitudInstalacion;
 
     @OneToMany(mappedBy = "boya", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Muestra> mustras = new ArrayList<>();
 
-    public void generarMuestra(Muestra muestra){
+    public void generarMuestra(Muestra muestra) {
         this.mustras.add(muestra);
     }
 
@@ -46,14 +46,6 @@ public class Boya {
         this.boyaId = boyaId;
     }
 
-    public String getColorLuz() {
-        return colorLuz;
-    }
-
-    public void setColorLuz(String colorLuz) {
-        this.colorLuz = colorLuz;
-    }
-
     public Double getLongitudInstalacion() {
         return longitudInstalacion;
     }
@@ -70,7 +62,29 @@ public class Boya {
         this.latitudInstalacion = latitudInstalacion;
     }
 
-     
+    public enum ColorLuzEnum {
 
+        NULL(1), ROJO(2), AMARILLO(3), VERDE(4), AZUL(5);
 
+        private final int value;
+
+        private ColorLuzEnum(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
+
+        public static ColorLuzEnum parse(int id) {
+            ColorLuzEnum status = null; // Default
+            for (ColorLuzEnum item : ColorLuzEnum.values()) {
+                if (item.getValue() == id) {
+                    status = item;
+                    break;
+                }
+            }
+            return status;
+        }
+    }
 }
